@@ -12,17 +12,17 @@ import com.britishbroadcast.gitto.viewmodel.GittoViewModel
 
 class LoginScreenFragment: Fragment() {
 
-    companion object {
-        fun newInstance(): LoginScreenFragment {
-            return LoginScreenFragment()
-        }
-    }
+   // companion object {
+     //   fun newInstance(): LoginScreenFragment {
+       //     return LoginScreenFragment()
+      //  }
+   // }
 
-    interface OnLoginSelected {
-        fun onLoginSelected()
-    }
+  //  interface OnLoginSelected {
+    //    fun onLoginSelected()
+    //}
 
-    private val gittoViewModel by activityViewModels<GittoViewModel>()
+   // private val gittoViewModel by activityViewModels<GittoViewModel>()
 
 
 
