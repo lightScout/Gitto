@@ -15,11 +15,12 @@ import com.britishbroadcast.gitto.view.adapter.UserItemAdapter
 import com.britishbroadcast.gitto.view.ui.MainActivity
 import com.britishbroadcast.gitto.viewmodel.GittoViewModel
 
-class HomeFragment: Fragment(), UserFragment.UserFragmentInterface{
+class HomeFragment: Fragment(), UserFragment.UserFragmentInterface, RepositoriesFragment.RepositoryInterface{
 
     private lateinit var binding: HomeFragmentLayoutBinding
     private var userFragment = UserFragment(this)
-    private var repositoryFragment = RepositoriesFragment()
+    private var repositoryFragment = RepositoriesFragment(this)
+    private var commitsFragment = CommitsFragment()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -63,6 +64,19 @@ class HomeFragment: Fragment(), UserFragment.UserFragmentInterface{
                 })
                 .addToBackStack(null)
                 .commit()
+    }
+
+    override fun displayCommitsFragment() {
+        parentFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                android.R.anim.fade_in,
+                android.R.anim.fade_out,
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+            )
+            .replace(binding.homeFrameLayout.id, commitsFragment)
+            .addToBackStack(null)
+            .commit()
     }
 
 

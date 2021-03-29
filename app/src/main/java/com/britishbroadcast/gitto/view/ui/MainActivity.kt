@@ -21,6 +21,7 @@ import com.britishbroadcast.gitto.util.Constants.Companion.GIT_CLIENT_ID
 import com.britishbroadcast.gitto.util.Constants.Companion.GIT_REDIRECT_URI
 import com.britishbroadcast.gitto.util.Constants.Companion.GIT_REQUEST_URL
 import com.britishbroadcast.gitto.view.adapter.GittoViewPagerAdapter
+import com.britishbroadcast.gitto.view.fragment.CommitsFragment
 import com.britishbroadcast.gitto.view.fragment.RepositoriesFragment
 import com.britishbroadcast.gitto.view.fragment.SplashScreenFragment
 import com.britishbroadcast.gitto.view.fragment.UserFragment
@@ -30,14 +31,14 @@ import java.time.LocalDateTime
 import java.util.*
 
 
-class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, SplashScreenFragment.SplashScreenInterface, LoginScreenFragment.LoginDelegate, RepositoriesFragment.RepositoryInterface, UserFragment.UserFragmentInterface {
+class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, SplashScreenFragment.SplashScreenInterface, LoginScreenFragment.LoginDelegate {
     private val splashScreenFragment = SplashScreenFragment()
     private val loginScreenFragment = LoginScreenFragment()
     private lateinit var binding: ActivityMainBinding
     private lateinit var gittoViewPagerAdapter: GittoViewPagerAdapter
     private val gittoViewModel: GittoViewModel by viewModels()
     private lateinit var sharedPreferences: SharedPreferences
-    private val repositoriesFragment = RepositoriesFragment()
+    //private val repositoriesFragment = RepositoriesFragment()
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -190,25 +191,5 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, Splash
             binding.mainViewPager.visibility = this
         }
     }
-
-
-    override fun displayRepositoriesFragment(login: String) {
-
-        supportFragmentManager.beginTransaction()
-                .setCustomAnimations(
-                        android.R.anim.fade_in,
-                        android.R.anim.fade_out,
-                        android.R.anim.fade_in,
-                        android.R.anim.fade_out
-                )
-                .replace(R.id.home_frameLayout, repositoriesFragment.also {
-                    val bundle = Bundle()
-                    bundle.putString("USER", login)
-                    it.arguments = bundle
-                })
-                .addToBackStack(repositoriesFragment.tag)
-                .commit()
-    }
-
 
 }

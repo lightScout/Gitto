@@ -20,7 +20,7 @@ class UserFragment(val userFragmentDelete: HomeFragment): Fragment(), UserItemAd
     interface UserFragmentInterface {
         fun displayRepositoriesFragment(login: String)
     }
-    private lateinit var userFragmentInterface: UserFragmentInterface
+
     private lateinit var binding: UserFragmentLayoutBinding
     private val userItemAdapter = UserItemAdapter(mutableListOf(), this)
     private var gitReposeList = listOf<GitResponse>()
@@ -50,11 +50,6 @@ class UserFragment(val userFragmentDelete: HomeFragment): Fragment(), UserItemAd
     override fun showRepositories(login: String) {
         userFragmentDelete.displayRepositoriesFragment(login)
         gittoViewModel.getRepository().gitRepositoryLiveData.postValue(gitReposeList)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        userFragmentInterface = (context as MainActivity)
     }
 
     override fun onDestroy() {
