@@ -22,6 +22,10 @@ class HomeFragment: Fragment(), UserFragment.UserFragmentInterface, Repositories
     private var repositoryFragment = RepositoriesFragment(this)
     private var commitsFragment = CommitsFragment()
 
+   // interface gitHubUsers {
+   //     fun getUsers()
+   // }
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,

@@ -20,10 +20,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:src="@tools:sample/backgrounds/scenic"/>
+            tools:src="@tools:sample/backgrounds/scenic"
+            android:background="@drawable/image_circle_bg"
+            android:padding="4dp"/>
 
         <TextView
             android:id="@+id/user_name_textview"
+            style="@style/AppTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"

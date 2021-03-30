@@ -6,6 +6,7 @@
 
 
     <EditText
+        style="@style/AppTextView"
         android:id="@+id/search_editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
