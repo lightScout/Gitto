@@ -32,6 +32,8 @@ class GittoRepository(application: Application) {
 
     val gitCommitsLiveData = MutableLiveData<List<GitUserCommitItem>>()
 
+    val gitPrivateResponseLiveData = MutableLiveData<GitResponse>()
+
     var gitResponseList = mutableListOf<GitResponse>()
 
 
@@ -95,6 +97,21 @@ class GittoRepository(application: Application) {
                     gitCommitsLiveData.postValue(it)
                     compositeDisposable.clear()
                 }, {
+                    Log.d("TAG_J", it.localizedMessage)
+                })
+        )
+    }
+
+    fun getGitUserPrivateRepo(authorization: String){
+        compositeDisposable.add(
+            gittoRetrofit.getGitUserPrivateRepo(authorization)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    Log.d("TAG_X_PRIVATE", it[0].owner.login)
+                    Log.d("TAG_X_PRIVATE", it[0].name)
+                    //gitPrivateResponseLiveData.postValue(it)
+                },{
                     Log.d("TAG_J", it.localizedMessage)
                 })
         )
