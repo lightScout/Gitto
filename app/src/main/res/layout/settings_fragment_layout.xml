@@ -2,6 +2,180 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/layout_margin_16dp"
+    android:background="@drawable/constraint_layout_bg">
+
+
+    <FrameLayout
+        android:id="@+id/main_frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/back_arrow_imageview"
+        android:layout_width="19dp"
+        android:layout_height="20dp"
+        android:layout_margin="@dimen/layout_margin_16dp"
+        android:layout_marginVertical="20dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/settings_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/settings_textView"
+        style="@style/SettingsTextView"
+        android:layout_width="106dp"
+        android:layout_height="57dp"
+        android:padding="8dp"
+        android:text="Settings"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/github_textView"
+        app:layout_constraintEnd_toStartOf="@+id/gitHub_logo_imageview"
+        app:layout_constraintStart_toEndOf="@+id/back_arrow_imageview"
+        app:layout_constraintTop_toTopOf="@+id/main_frameLayout" />
+
+
+    <ImageView
+        android:id="@+id/gitHub_logo_imageview"
+        android:layout_width="53dp"
+        android:layout_height="45dp"
+        android:layout_margin="@dimen/layout_margin_16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/github_textView"
+        style="@style/AppTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin_16dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="GitHub"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gitHub_logo_imageview" />
+
+    <TextView
+        android:id="@+id/account_textView"
+        style="@style/TextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin_16dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:text="Account"
+        android:textAlignment="textStart"
+        android:background="@drawable/text_rectangle_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/github_textView" />
+
+
+    <EditText
+        android:id="@+id/profile_editTextText"
+        style="@style/TextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin_16dp"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:text="Edit Profile "
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_textView" />
+
+
+
+    <EditText
+        android:id="@+id/change_password_editTextText"
+        style="@style/TextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin_16dp"
+        android:ems="10"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:text="Change Password "
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_editTextText" />
+
+    <TextView
+        android:id="@+id/preferences_textView"
+        style="@style/TextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin_16dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:text="Preferences"
+        android:textAlignment="textStart"
+        android:background="@drawable/text_rectangle_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_password_editTextText" />
+
+    <EditText
+        android:id="@+id/data_editTextText"
+        style="@style/TextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin_16dp"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:text="Privacy &amp; Data"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preferences_textView" />
+
+
+
+    <EditText
+        android:id="@+id/repository_textView"
+        style="@style/TextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin_16dp"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:text="Repository"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/data_editTextText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logout_button"
+        style="@style/AppButtonTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_bg"
+        android:padding="8dp"
+        android:text="Log Out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,4 +2,5 @@
 <resources>
     <dimen name="layout_margin_16dp">16dp</dimen>
     <dimen name="value_8dp">8dp</dimen>
+    <dimen name="button_radius_16dp">16dp</dimen>
 </resources>
